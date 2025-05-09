@@ -1,16 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>图片展示</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析可视化结果</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36D399',
+                        neutral: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .shadow-soft {
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            }
+            .transition-smooth {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    </style>
 </head>
+<body class="bg-gray-50 font-inter text-gray-800">
+    <!-- 顶部导航 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-bar-chart text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-primary">数据分析可视化</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#histogram" class="text-gray-600 hover:text-primary transition-smooth">高频词统计</a></li>
+                    <li><a href="#wordcloud" class="text-gray-600 hover:text-primary transition-smooth">词云展示</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<body>
-  <img src=""D:\HuaweiMoveData\Users\ZYZCH\Desktop\平时作业\python\期末\词云图1.jpg"" alt="高频词统计" width="800">
-  <br>
-  <img src=""D:\HuaweiMoveData\Users\ZYZCH\Desktop\平时作业\python\期末\Historic_柱状图.png"" alt="词云" width="800">
+    <main class="container mx-auto px-4 py-8">
+        <!-- 介绍部分 -->
+        <section class="mb-12 text-center">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-gray-800">文本数据分析结果</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">通过Python进行文本处理和分析，生成高频词统计图表和词云图，直观展示文本特征。</p>
+        </section>
+
+        <!-- 高频词统计图表 -->
+        <section id="histogram" class="mb-16 bg-white rounded-xl shadow-soft p-6 transform hover:scale-[1.01] transition-smooth">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                    <i class="fa fa-chart-column text-primary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800">高频词统计柱状图</h3>
+            </div>
+            <p class="text-gray-600 mb-6">该图表展示了文本中出现频率最高的前20个词汇及其出现次数。</p>
+            <div class="relative overflow-hidden rounded-lg border border-gray-200">
+                <img src="D:\HuaweiMoveData\Users\ZYZCH\Desktop\平时作业\python\期末\Historic_柱状图.png" 
+                     alt="高频词统计柱状图" 
+                     class="w-full h-auto object-contain max-h-[600px] hover:brightness-[1.02] transition-smooth">
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">图片尺寸: 自适应</span>
+                <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-smooth flex items-center">
+                    <i class="fa fa-download mr-2"></i> 下载原图
+                </button>
+            </div>
+        </section>
+
+        <!-- 词云图 -->
+        <section id="wordcloud" class="mb-16 bg-white rounded-xl shadow-soft p-6 transform hover:scale-[1.01] transition-smooth">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mr-3">
+                    <i class="fa fa-cloud text-secondary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800">文本词云图</h3>
+            </div>
+            <p class="text-gray-600 mb-6">词云图通过字体大小直观展示文本中各词汇的重要程度和出现频率。</p>
+            <div class="relative overflow-hidden rounded-lg border border-gray-200">
+                <img src="D:\HuaweiMoveData\Users\ZYZCH\Desktop\平时作业\python\期末\词云图1.jpg" 
+                     alt="词云图" 
+                     class="w-full h-auto object-contain max-h-[600px] hover:brightness-[1.02] transition-smooth">
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">图片尺寸: 自适应</span>
+                <button class="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-lg transition-smooth flex items-center">
+                    <i class="fa fa-download mr-2"></i> 下载原图
+                </button>
+            </div>
+        </section>
+
+        <!-- 分析总结 -->
+        <section class="bg-primary/5 rounded-xl p-8 mb-16">
+            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fa fa-lightbulb text-primary mr-2"></i> 分析总结
+            </h3>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                    <span>从高频词统计可以看出，"技术"、"数据"、"分析"等词汇出现频率最高，反映了文本的核心主题。</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                    <span>词云图的视觉效果直观展示了各词汇的权重分布，便于快速把握文本重点。</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                    <span>结合柱状图和词云图分析，可以为进一步的文本挖掘和主题建模提供基础。</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fa fa-bar-chart text-primary text-2xl mr-2"></i>
+                        <span class="text-lg font-bold">数据分析可视化</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">基于Python的文本分析项目</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-smooth">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-smooth">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-smooth">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 数据分析项目 | 使用 HTML, Tailwind CSS 和 Font Awesome 构建</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-smooth opacity-0 invisible">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', () => {
+                img.src = 'https://picsum.photos/800/600'; // 替换为默认图片
+                img.alt = '图片加载失败';
+            });
+        });
+    </script>
 </body>
-
 </html>
